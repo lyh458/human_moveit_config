@@ -4,7 +4,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 -0.0405569060538"/>
       <geometry>
-        <cylinder length="-0.0811138121076" radius="0.130553532998"/>
+        <cylinder length="0.0811138121076" radius="0.130553532998"/>
       </geometry>
     </visual>
   </link>
