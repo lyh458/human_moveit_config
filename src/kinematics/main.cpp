@@ -7,8 +7,7 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 	ros::init(argc, argv, "tracik_srv");
-	ros::AsyncSpinner spinner(1);
-    spinner.start();
+	ros::AsyncSpinner spinner(0);
 
     ros::NodeHandle nh;
 
@@ -21,7 +20,8 @@ int main(int argc, char* argv[])
   	TracIKSolver solver(argv[1], argv[2], urdf_param, timeout);
   	ros::ServiceServer div_ik_srv = nh.advertiseService(argv[3], &TracIKSolver::perform_ik, &solver);
 
-  	ros::spin();
+	spinner.start();
+    ros::waitForShutdown();
 
     return 0;
 }
