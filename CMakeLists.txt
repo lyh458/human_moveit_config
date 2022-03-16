@@ -151,9 +151,10 @@ include_directories(
 ## either from message generation or dynamic reconfigure
 # add_dependencies(reba_optim ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
+
 FILE(GLOB SRCFILES_IK ${PROJECT_SOURCE_DIR}/src/kinematics/*.cpp ${PROJECT_SOURCE_DIR}/src/kinematics/*.hpp)
 add_executable(tracik_server ${SRCFILES_IK})
-
+add_dependencies(tracik_server ${PROJECT_NAME}_generate_messages_cpp)
 target_link_libraries(tracik_server
   ${catkin_LIBRARIES}
   ${Boost_LIBRARIES}
